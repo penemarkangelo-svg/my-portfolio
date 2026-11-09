@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Mark Angelo Pene, aspiring web developer.">
+  <title>Mark Angelo Pene — Digital Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="header">
+  <a class="logo" href="#home">
+    <span class="logo-mark">M.</span>
+    Mark Angelo
+  </a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+    ☰
+  </button>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#projects">Projects</a>
+    <a href="#background">Background</a>
+    <a class="nav-button" href="#contact">Let's talk ↗</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="hero wrap" id="home">
+
+  <div class="hero-copy">
+    <p class="eyebrow"><b></b> ASPIRING WEB DEVELOPER</p>
+
+    <h1>
+      Building digital<br>
+      <em>experiences</em><br>
+      through code.
+    </h1>
+
+    <p class="lead">
+      I'm Mark Angelo Pene, an Information Technology student interested
+      in web development, database management, and creating practical
+      digital solutions.
+    </p>
+
+    <div class="actions">
+      <a class="btn dark" href="#projects">Explore projects ↗</a>
+      <a class="btn light" href="#contact">Get in touch</a>
+    </div>
+
+    <p class="note">
+      BS Information Technology · STI College Rosario
+    </p>
+  </div>
+
+  <!-- DIGITAL PORTRAIT -->
+  <div class="portrait-wrap">
+
+    <div class="portrait-frame">
+
+      <canvas
+        id="binaryCanvas"
+        aria-label="Interactive portrait rendered in binary characters">
+      </canvas>
+
+      <!-- HUD ELEMENTS -->
+      <div class="hud" aria-hidden="true">
+
+        <span class="hud-corner tl"></span>
+        <span class="hud-corner tr"></span>
+        <span class="hud-corner bl"></span>
+        <span class="hud-corner br"></span>
+
+        <p class="hud-id">DIGITAL IDENTITY / 001</p>
+
+        <p class="hud-online">
+          <b></b> ONLINE
+        </p>
+
+        <span class="hud-plus"></span>
+
+        <!-- NAME TAG -->
+        <div class="hud-tag hud-tag--name">
+          <span class="hud-box">MARK ANGELO PENE</span>
+
+          <svg class="hud-line" viewBox="0 0 64 26">
+            <polyline points="0,1 14,1 60,22"/>
+            <rect x="57" y="19" width="6" height="6"/>
+          </svg>
+        </div>
+
+        <!-- CODE CARD -->
+        <div class="hud-code">
+
+          <div class="hud-code__bar">
+            <i></i>
+            <i></i>
+            <i></i>
+            <span>developer.js</span>
+          </div>
+
+          <pre><span class="ln">01</span> const developer = {
+<span class="ln">02</span>   name: <em>"Mark Angelo"</em>,
+<span class="ln">03</span>   role: <em>"BSIT Student"</em>,
+<span class="ln">04</span>   focus: <em>"Web Development"</em>
+<span class="ln">05</span> };</pre>
+
+        </div>
+
+        <!-- ASPIRING DEVELOPER -->
+        <div class="hud-tag hud-tag--aspire">
+          <span class="hud-box">
+            ASPIRING<br>WEB DEVELOPER
+          </span>
+
+          <svg class="hud-line" viewBox="0 0 40 26">
+            <polyline points="0,1 12,1 35,20"/>
+            <rect x="32" y="17" width="6" height="6"/>
+          </svg>
+        </div>
+
+        <!-- STUDENT TAG -->
+        <div class="hud-tag hud-tag--student">
+          <span class="hud-box">BSIT STUDENT</span>
+
+          <svg class="hud-line" viewBox="0 0 40 24">
+            <polyline points="40,1 26,1 3,20"/>
+            <rect x="0" y="17" width="6" height="6"/>
+          </svg>
+        </div>
+
+        <!-- LEARNING CARD -->
+        <div class="hud-learn">
+
+          <p class="hud-learn__title">
+            <b></b> CURRENTLY LEARNING
+          </p>
+
+          <ul>
+            <li>React</li>
+            <li>Database Design</li>
+            <li>Web Development</li>
+          </ul>
+
+        </div>
+
+        <span class="hud-bottom">
+          MOVE YOUR CURSOR TO INTERACT
+        </span>
+
+      </div>
+    </div>
+
+    <p class="portrait-caption">
+      01 <span>—</span> DIGITAL IDENTITY
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ABOUT SECTION -->
+<section class="section wrap" id="about">
+
+  <p class="kicker">01 / ABOUT</p>
+
+  <div class="split">
+
+    <h2>A little about<br>who I am.</h2>
+
+    <div class="body-copy">
+
+      <p>
+        I'm currently pursuing a Bachelor of Science in Information
+        Technology at STI College Rosario, Cavite. Throughout my
+        academic journey, I've developed an interest in web and
+        application development.
+      </p>
+
+      <p>
+        Through school projects and collaborative development,
+        I've gained practical experience in frontend implementation,
+        database integration, and building functional user interfaces.
+        I'm continuously learning, improving my programming skills,
+        and working toward becoming a capable web developer.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERTISE SECTION -->
+<section class="section wrap" id="expertise">
+
+  <div class="section-head">
+    <p class="kicker">02 / EXPERTISE</p>
+
+    <div>
+      <h2>Tools I work with.</h2>
+      <p class="muted">
+        Technologies and tools I've explored through coursework and projects.
+      </p>
+    </div>
+  </div>
+
+  <div class="skill-grid">
+
+    <article class="skill-card">
+      <span class="number">01</span>
+      <div class="symbol">⌘</div>
+
+      <h3>Frontend Development</h3>
+
+      <p>
+        Building responsive interfaces and user-facing experiences.
+      </p>
+
+      <div class="tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>React</span>
+        <span>Tailwind CSS</span>
+      </div>
+    </article>
+
+    <article class="skill-card">
+      <span class="number">02</span>
+      <div class="symbol">〈〉</div>
+
+      <h3>Programming</h3>
+
+      <p>
+        Learning programming concepts and developing application logic.
+      </p>
+
+      <div class="tags">
+        <span>Java</span>
+        <span>C#</span>
+        <span>Kotlin</span>
+      </div>
+    </article>
+
+    <article class="skill-card">
+      <span class="number">03</span>
+      <div class="symbol">▤</div>
+
+      <h3>Database & Backend</h3>
+
+      <p>
+        Working with data storage, database structures, and integrations.
+      </p>
+
+      <div class="tags">
+        <span>Supabase</span>
+        <span>PostgreSQL</span>
+        <span>MongoDB</span>
+      </div>
+    </article>
+
+    <article class="skill-card">
+      <span class="number">04</span>
+      <div class="symbol">⚙</div>
+
+      <h3>Development Tools</h3>
+
+      <p>
+        Using development environments and version-control tools.
+      </p>
+
+      <div class="tags">
+        <span>Git</span>
+        <span>GitHub</span>
+        <span>NetBeans</span>
+        <span>Android Studio</span>
+        <span>Visual Studio</span>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="fine">
+    Technologies listed are those I've explored through learning and projects.
+    Skill percentages are intentionally omitted.
+  </p>
+
+</section>
+
+
+<!-- PROJECTS SECTION -->
+<section class="section wrap" id="projects">
+
+  <div class="section-head">
+    <p class="kicker">03 / SELECTED WORK</p>
+
+    <div>
+      <h2>Projects I've worked on.</h2>
+      <p class="muted">
+        Academic and collaborative projects that helped me apply what I've learned.
+      </p>
+    </div>
+  </div>
+
+  <div class="projects">
+
+    <!-- CAPSTONE -->
+    <article class="project">
+
+      <div class="project-meta">
+        <b>01</b>
+        <span>CAPSTONE PROJECT</span>
+      </div>
+
+      <div class="project-content">
+
+        <h3>Acebedo Panol Optical</h3>
+
+        <h4>
+          Intelligent Optical E-Commerce Platform with Vision Screening
+          and AR-Based Eyewear Try-On
+        </h4>
+
+        <p>
+          An optical e-commerce platform designed for Acebedo Panol
+          Optical Clinic, bringing together eyewear browsing,
+          web-based vision screening, and AR-based eyewear try-on.
+        </p>
+
+        <p>
+          <strong>My contribution:</strong>
+          Frontend development and database integration.
+        </p>
+
+        <div class="tags">
+          <span>React</span>
+          <span>Vite</span>
+          <span>Tailwind CSS</span>
+          <span>Supabase</span>
+        </div>
+
+      </div>
+
+      <span class="arrow">↗</span>
+
+    </article>
+
+
+    <!-- PAWCHECK -->
+    <article class="project">
+
+      <div class="project-meta">
+        <b>02</b>
+        <span>SCHOOL PROJECT</span>
+      </div>
+
+      <div class="project-content">
+
+        <h3>PawCheck</h3>
+
+        <h4>Digital Veterinary Service Application</h4>
+
+        <p>
+          A digital veterinary service application concept with
+          pet profiles, appointment booking, chat, and an online shop.
+        </p>
+
+        <div class="tags">
+          <span>Academic Project</span>
+          <span>Application Development</span>
+        </div>
+
+      </div>
+
+      <span class="arrow">↗</span>
+
+    </article>
+
+
+    <!-- BUS TICKET -->
+    <article class="project">
+
+      <div class="project-meta">
+        <b>03</b>
+        <span>SCHOOL PROJECT</span>
+      </div>
+
+      <div class="project-content">
+
+        <h3>Bus Ticket Reservation System</h3>
+
+        <h4>C# Application Project</h4>
+
+        <p>
+          A school application project focused on digital bus ticket
+          reservations and organizing the booking process.
+        </p>
+
+        <div class="tags">
+          <span>C#</span>
+          <span>Academic Project</span>
+        </div>
+
+      </div>
+
+      <span class="arrow">↗</span>
+
+    </article>
+
+  </div>
+
+  <p class="fine">
+    Project screenshots and more detailed descriptions can be added later,
+    including the specific features I personally implemented.
+  </p>
+
+</section>
+
+
+<!-- APPROACH SECTION -->
+<section class="section wrap">
+
+  <div class="section-head">
+    <p class="kicker">04 / APPROACH</p>
+
+    <div>
+      <h2>From idea to implementation.</h2>
+      <p class="muted">
+        A simple process I follow when working on projects.
+      </p>
+    </div>
+  </div>
+
+  <div class="process">
+
+    <article>
+      <span>01</span>
+      <h3>Discover</h3>
+      <p>Understand the problem and requirements.</p>
+    </article>
+
+    <article>
+      <span>02</span>
+      <h3>Plan</h3>
+      <p>Organize features and system structure.</p>
+    </article>
+
+    <article>
+      <span>03</span>
+      <h3>Design</h3>
+      <p>Plan the interface and user experience.</p>
+    </article>
+
+    <article>
+      <span>04</span>
+      <h3>Develop</h3>
+      <p>Implement application features and data.</p>
+    </article>
+
+    <article>
+      <span>05</span>
+      <h3>Test</h3>
+      <p>Debug, evaluate, and improve the result.</p>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- BACKGROUND SECTION -->
+<section class="section wrap" id="background">
+
+  <div class="section-head">
+    <p class="kicker">05 / BACKGROUND</p>
+
+    <div>
+      <h2>Education & learning.</h2>
+      <p class="muted">
+        My academic background and selected training.
+      </p>
+    </div>
+  </div>
+
+  <div class="background-grid">
+
+    <!-- EDUCATION -->
+    <div>
+
+      <h3 class="subhead">Education</h3>
+
+      <div class="timeline">
+        <time>2023 — PRESENT</time>
+        <div>
+          <strong>STI College Rosario, Cavite</strong>
+          <p>Bachelor of Science in Information Technology</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <time>2020 — 2022</time>
+        <div>
+          <strong>Rosario Institute</strong>
+          <p>Secondary Education</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <time>2016 — 2020</time>
+        <div>
+          <strong>Noveleta National High School</strong>
+          <p>Secondary Education</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <time>2010 — 2016</time>
+        <div>
+          <strong>San Antonio Elementary School</strong>
+          <p>Primary Education</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- CERTIFICATIONS -->
+    <div>
+
+      <h3 class="subhead">Certifications & training</h3>
+
+      <div class="certificate">
+        <span class="cert-mark">OA</span>
+
+        <div>
+          <strong>Java Fundamentals</strong>
+          <p>Oracle Academy · June 19, 2024</p>
+          <small>CERTIFICATE AVAILABLE</small>
+        </div>
+      </div>
+
+      <div class="certificate">
+        <span class="cert-mark">SAP</span>
+
+        <div>
+          <strong>SAP 1</strong>
+          <p>School-provided SAP coursework</p>
+          <small class="muted-label">ACADEMIC TRAINING</small>
+        </div>
+      </div>
+
+      <div class="certificate">
+        <span class="cert-mark">SAP</span>
+
+        <div>
+          <strong>SAP 2</strong>
+          <p>School-provided SAP coursework</p>
+          <small class="muted-label">ACADEMIC TRAINING</small>
+        </div>
+      </div>
+
+      <p class="fine">
+        SAP 1 and SAP 2 are listed as academic training, not verified
+        external certifications.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT SECTION -->
+<section class="wrap contact-section" id="contact">
+
+  <div class="contact-panel">
+
+    <div>
+      <p class="kicker">06 / CONTACT</p>
+
+      <h2>
+        Let's build<br>
+        something meaningful.
+      </h2>
+
+      <p>
+        I'm open to learning opportunities, collaboration, and
+        opportunities to grow in web development and technology.
+      </p>
+    </div>
+
+    <div class="contact-links">
+
+      <a href="mailto:your.email@example.com">
+        Email me <span>↗</span>
+      </a>
+
+      <a href="#" target="_blank" rel="noreferrer">
+        GitHub <span>↗</span>
+      </a>
+
+      <a href="#" target="_blank" rel="noreferrer">
+        LinkedIn <span>↗</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer wrap">
+
+  <a class="logo" href="#home">
+    <span class="logo-mark">M.</span>
+    Mark Angelo
+  </a>
+
+  <span>
+    © <span id="year"></span> Mark Angelo Pene
+  </span>
+
+  <a href="#home">Back to top ↑</a>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
