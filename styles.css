@@ -1,3 +1,9 @@
+
+/* =========================================
+   MARK ANGELO PENE — DIGITAL PORTFOLIO
+   Updated styles.css
+========================================= */
+
 /* =========================================
    GLOBAL SETTINGS
 ========================================= */
@@ -44,7 +50,6 @@ button {
   margin-inline: auto;
 }
 
-
 /* =========================================
    HEADER
 ========================================= */
@@ -85,19 +90,44 @@ button {
 }
 
 .header nav a {
+  position: relative;
   font-size: 13px;
   color: #555;
-  transition: .25s;
+  transition: color .25s;
 }
 
-.header nav a:hover {
-  color: var(--green);
+.header nav a:not(.nav-button) {
+  padding: 6px 0;
+}
+
+.header nav a:not(.nav-button)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.header nav a:not(.nav-button):hover,
+.header nav a.active {
+  color: var(--black);
+}
+
+.header nav a:not(.nav-button):hover::after,
+.header nav a.active::after {
+  transform: scaleX(1);
 }
 
 .header nav .nav-button {
   padding: 13px 18px;
   border: 1px solid #ddd;
   color: var(--black);
+  transition: .25s;
 }
 
 .header nav .nav-button:hover {
@@ -114,9 +144,8 @@ button {
   cursor: pointer;
 }
 
-
 /* =========================================
-   HERO
+   HERO SECTION
 ========================================= */
 
 .hero {
@@ -191,7 +220,7 @@ button {
 }
 
 .btn.dark:hover {
-  background: var(--green);
+  background: #3a3a3a;
 }
 
 .btn.light {
@@ -209,27 +238,57 @@ button {
   font-size: 11px;
 }
 
-
 /* =========================================
    DIGITAL PORTRAIT
 ========================================= */
 
 .portrait-wrap {
   width: 100%;
+  min-width: 0;
 }
 
+/* Main portrait container */
 .portrait-frame {
   position: relative;
-  height: 470px;
+  height: 540px;
   width: 100%;
-  background: #f8f8f8;
+  background:
+    radial-gradient(
+      ellipse at center,
+      #ffffff 0%,
+      #f8f8f8 65%,
+      #f1f1f1 100%
+    );
   border: 1px solid #dedede;
   overflow: hidden;
   isolation: isolate;
 }
 
+/* Very subtle technical background texture */
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .16;
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.035) 1px,
+      transparent 1px
+    );
+  background-size: 28px 28px;
+}
+
+/* Binary portrait canvas */
 .portrait-frame canvas {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
   width: 100%;
   height: 100%;
@@ -238,6 +297,7 @@ button {
   touch-action: pan-y;
 }
 
+/* Portrait caption */
 .portrait-caption {
   display: flex;
   justify-content: flex-end;
@@ -252,13 +312,13 @@ button {
   color: var(--green);
 }
 
-
 /* =========================================
    HUD LAYER
 ========================================= */
 
 .hud {
   --hud-font: ui-monospace, SFMono-Regular, Consolas, "Courier New", monospace;
+
   position: absolute;
   inset: 0;
   z-index: 3;
@@ -267,13 +327,14 @@ button {
   font-family: var(--hud-font);
 }
 
-
-/* Corner brackets */
+/* =========================================
+   CORNER BRACKETS
+========================================= */
 
 .hud-corner {
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-color: rgba(25,25,25,.55);
   border-style: solid;
 }
@@ -302,8 +363,9 @@ button {
   border-width: 0 1px 1px 0;
 }
 
-
-/* Top information */
+/* =========================================
+   TOP INFORMATION
+========================================= */
 
 .hud-id,
 .hud-online {
@@ -316,28 +378,41 @@ button {
 }
 
 .hud-id {
-  left: 35px;
+  left: 38px;
 }
 
 .hud-online {
-  right: 35px;
+  right: 38px;
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
 }
 
-.hud-online b,
-.hud-learn__title b {
+.hud-online b {
   width: 7px;
   height: 7px;
   display: inline-block;
   border-radius: 50%;
   background: var(--green);
   box-shadow: 0 0 8px rgba(23,139,77,.4);
+  animation: onlinePulse 2.5s ease-in-out infinite;
 }
 
+@keyframes onlinePulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(23,139,77,.35);
+  }
 
-/* Crosshair, 01 02 03, hatch marks, dot patches */
+  50% {
+    opacity: .55;
+    box-shadow: 0 0 14px rgba(23,139,77,.65);
+  }
+}
+
+/* =========================================
+   CROSSHAIR
+========================================= */
 
 .hud-plus {
   position: absolute;
@@ -367,77 +442,20 @@ button {
   top: 6px;
 }
 
-.hud-index {
-  position: absolute;
-  top: 22%;
-  right: 35px;
-  margin: 0;
-  padding: 0 0 0 8px;
-  list-style: none;
-  border-left: 1px solid #bbb;
-  font-size: 8px;
-  line-height: 1.9;
-  color: #888;
-}
-
-.hud-hatch {
-  position: absolute;
-  right: 35px;
-  bottom: 27px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.hud-hatch i {
-  width: 16px;
-  height: 6px;
-  background: repeating-linear-gradient(115deg, #555 0 1px, transparent 1px 3px);
-}
-
-.hud-hatch::after {
-  content: "";
-  width: 26px;
-  height: 1px;
-  background: #bbb;
-}
-
-.hud-dots {
-  position: absolute;
-  width: 56px;
-  height: 28px;
-  opacity: .55;
-  background-image: radial-gradient(#9a9a9a 1px, transparent 1.2px);
-  background-size: 8px 8px;
-}
-
-.hud-dots--a {
-  left: 7%;
-  top: 28.5%;
-}
-
-.hud-dots--b {
-  right: 6%;
-  top: 50%;
-}
-
-.hud-dots--c {
-  left: 7%;
-  bottom: 8%;
-}
-
-
-/* HUD tags and leader lines */
+/* =========================================
+   HUD TAGS AND LEADER LINES
+========================================= */
 
 .hud-tag {
   position: absolute;
+  z-index: 4;
 }
 
 .hud-box {
   display: block;
-  padding: 7px 10px;
+  padding: 8px 11px;
   border: 1px solid #222;
-  background: #fff;
+  background: rgba(255,255,255,.96);
   box-shadow: 2px 2px 0 rgba(0,0,0,.06);
   font-size: 9px;
   font-weight: 700;
@@ -446,7 +464,6 @@ button {
   white-space: nowrap;
 }
 
-/* Lines must have no fill (a green fill caused the wedge shapes). */
 .hud-line {
   position: absolute;
   top: 50%;
@@ -462,9 +479,10 @@ button {
   stroke: #222;
 }
 
+/* Name */
 .hud-tag--name {
   top: 17%;
-  left: 6%;
+  left: 5%;
 }
 
 .hud-tag--name .hud-line {
@@ -473,9 +491,10 @@ button {
   height: 26px;
 }
 
+/* Aspiring developer */
 .hud-tag--aspire {
-  bottom: 20%;
-  left: 6%;
+  bottom: 18%;
+  left: 5%;
 }
 
 .hud-tag--aspire .hud-line {
@@ -484,8 +503,9 @@ button {
   height: 26px;
 }
 
+/* Student */
 .hud-tag--student {
-  top: 37%;
+  top: 38%;
   right: 5%;
 }
 
@@ -495,22 +515,24 @@ button {
   height: 24px;
 }
 
-
-/* Code card */
+/* =========================================
+   CODE CARD
+========================================= */
 
 .hud-code {
   position: absolute;
-  left: 5%;
-  top: 37%;
-  width: 190px;
-  background: rgba(255,255,255,.94);
+  right: 5%;
+  bottom: 12%;
+  z-index: 5;
+  width: 185px;
+  background: rgba(255,255,255,.96);
   border: 1px solid rgba(0,0,0,.12);
-  box-shadow: 0 8px 25px rgba(0,0,0,.06);
+  box-shadow: 0 8px 25px rgba(0,0,0,.07);
   backdrop-filter: blur(8px);
 }
 
 .hud-code__bar {
-  height: 25px;
+  height: 26px;
   padding: 0 9px;
   display: flex;
   align-items: center;
@@ -535,8 +557,8 @@ button {
   margin: 0;
   padding: 9px 10px 10px;
   font-family: var(--hud-font);
-  font-size: 8.5px;
-  line-height: 1.75;
+  font-size: 8px;
+  line-height: 1.8;
   color: #444;
   white-space: pre;
 }
@@ -552,73 +574,18 @@ button {
   font-style: normal;
 }
 
-
-/* Currently learning */
-
-.hud-learn {
-  position: absolute;
-  right: 5%;
-  bottom: 12%;
-  padding: 11px 14px;
-  min-width: 150px;
-  border: 1px solid rgba(0,0,0,.13);
-  background: rgba(255,255,255,.93);
-  box-shadow: 0 8px 25px rgba(0,0,0,.06);
-  backdrop-filter: blur(8px);
-}
-
-.hud-learn__title {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  margin: 0 0 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e4e4e4;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  color: #333;
-}
-
-.hud-learn__title b {
-  width: 6px;
-  height: 6px;
-}
-
-.hud-learn ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.hud-learn li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 3px 0;
-  font-size: 9.5px;
-  color: #333;
-}
-
-.hud-learn li::before {
-  content: "";
-  border-top: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  border-left: 5px solid #333;
-}
-
-
-/* Bottom label */
+/* =========================================
+   BOTTOM LABEL
+========================================= */
 
 .hud-bottom {
   position: absolute;
   bottom: 25px;
-  left: 35px;
+  left: 38px;
   font-size: 8px;
   letter-spacing: 1.2px;
   color: #888;
 }
-
 
 /* =========================================
    GENERAL SECTIONS
@@ -634,7 +601,7 @@ button {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--green);
+  color: #777;
 }
 
 .split {
@@ -678,7 +645,6 @@ h2 {
   line-height: 1.8;
 }
 
-
 /* =========================================
    SKILLS
 ========================================= */
@@ -698,7 +664,7 @@ h2 {
 }
 
 .skill-card:hover {
-  border-color: #b8d9c7;
+  border-color: #bdbdbd;
   transform: translateY(-4px);
 }
 
@@ -712,7 +678,7 @@ h2 {
 
 .symbol {
   font-size: 28px;
-  color: var(--green);
+  color: var(--black);
   margin-bottom: 22px;
 }
 
@@ -750,7 +716,6 @@ h2 {
   margin-top: 22px;
 }
 
-
 /* =========================================
    PROJECTS
 ========================================= */
@@ -782,7 +747,7 @@ h2 {
 .project-meta b {
   font-size: 23px;
   font-family: var(--font-heading);
-  color: var(--green);
+  color: var(--black);
 }
 
 .project-meta span {
@@ -819,9 +784,8 @@ h2 {
 
 .arrow {
   font-size: 20px;
-  color: var(--green);
+  color: var(--black);
 }
-
 
 /* =========================================
    PROCESS
@@ -848,7 +812,7 @@ h2 {
 
 .process span {
   font-size: 10px;
-  color: var(--green);
+  color: #888;
 }
 
 .process h3 {
@@ -862,7 +826,6 @@ h2 {
   line-height: 1.8;
   color: #888;
 }
-
 
 /* =========================================
    EDUCATION AND CERTIFICATES
@@ -890,7 +853,7 @@ h2 {
 
 .timeline time {
   font-size: 10px;
-  color: var(--green);
+  color: #777;
   letter-spacing: .5px;
 }
 
@@ -920,7 +883,7 @@ h2 {
   display: grid;
   place-items: center;
   background: #f3f3f3;
-  color: var(--green);
+  color: var(--black);
   font-family: var(--font-heading);
   font-size: 12px;
   font-weight: 700;
@@ -941,13 +904,12 @@ h2 {
   margin-top: 8px;
   font-size: 8px;
   letter-spacing: 1px;
-  color: var(--green);
+  color: var(--black);
 }
 
 .certificate .muted-label {
   color: #999;
 }
-
 
 /* =========================================
    CONTACT
@@ -989,17 +951,16 @@ h2 {
   padding: 17px 0;
   border-bottom: 1px solid #ddd;
   font-size: 13px;
-  transition: .2s;
+  transition: border-color .2s;
 }
 
 .contact-links a:hover {
-  color: var(--green);
+  border-bottom-color: var(--black);
 }
 
 .contact-links span {
-  color: var(--green);
+  color: var(--black);
 }
-
 
 /* =========================================
    FOOTER
@@ -1020,29 +981,27 @@ h2 {
   color: #888;
 }
 
-
 /* =========================================
    RESPONSIVE DESIGN
 ========================================= */
 
-/* Narrow desktop: the portrait frame is smaller here */
+/* Narrow desktop */
 @media (min-width: 901px) and (max-width: 1100px) {
 
+  .hero {
+    gap: 30px;
+  }
+
+  .portrait-frame {
+    height: 500px;
+  }
+
   .hud-code {
-    width: 160px;
+    width: 165px;
   }
 
   .hud-code pre {
-    font-size: 7.5px;
-  }
-
-  .hud-learn {
-    min-width: 125px;
-    padding: 9px 11px;
-  }
-
-  .hud-learn li {
-    font-size: 8.5px;
+    font-size: 7px;
   }
 
   .hud-box {
@@ -1051,12 +1010,13 @@ h2 {
   }
 }
 
-
+/* Tablet */
 @media (max-width: 900px) {
 
   .hero {
     grid-template-columns: 1fr;
     padding-top: 65px;
+    gap: 40px;
   }
 
   .hero-copy {
@@ -1064,7 +1024,7 @@ h2 {
   }
 
   .portrait-frame {
-    height: 500px;
+    height: 560px;
   }
 
   .section-head {
@@ -1081,7 +1041,7 @@ h2 {
   }
 }
 
-
+/* Mobile */
 @media (max-width: 650px) {
 
   .header {
@@ -1121,7 +1081,7 @@ h2 {
   }
 
   .portrait-frame {
-    height: 430px;
+    height: 470px;
   }
 
   .section {
@@ -1175,9 +1135,7 @@ h2 {
 
   /* HUD MOBILE */
 
-  .hud-plus,
-  .hud-index,
-  .hud-dots {
+  .hud-plus {
     display: none;
   }
 
@@ -1197,7 +1155,7 @@ h2 {
 
   .hud-tag--name {
     top: 15%;
-    left: 5%;
+    left: 4%;
   }
 
   .hud-tag--student {
@@ -1215,25 +1173,13 @@ h2 {
   }
 
   .hud-code {
-    left: 5%;
-    top: auto;
+    right: 4%;
     bottom: 12%;
-    width: 150px;
+    width: 145px;
   }
 
   .hud-code pre {
-    font-size: 6.5px;
-  }
-
-  .hud-learn {
-    right: 5%;
-    bottom: 12%;
-    min-width: 112px;
-    padding: 8px 9px;
-  }
-
-  .hud-learn li {
-    font-size: 8px;
+    font-size: 6px;
   }
 
   .hud-bottom {
@@ -1243,24 +1189,20 @@ h2 {
   }
 }
 
-
+/* Small mobile */
 @media (max-width: 420px) {
 
   .portrait-frame {
-    height: 390px;
+    height: 410px;
   }
 
   .hud-code {
-    width: 142px;
+    width: 135px;
   }
 
   .hud-code pre {
     padding: 8px;
-    font-size: 6px;
-  }
-
-  .hud-learn {
-    min-width: 96px;
+    font-size: 5.7px;
   }
 
   .hud-tag--student {
@@ -1273,5 +1215,21 @@ h2 {
 
   .timeline {
     grid-template-columns: 100px 1fr;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
   }
 }
